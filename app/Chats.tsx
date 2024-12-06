@@ -2,16 +2,24 @@ import { Text, View, StyleSheet, TouchableOpacity, Modal, Button } from "react-n
 import { Feather } from '@expo/vector-icons';
 import { useState } from "react";
 
-const Home = () => {
+const Chats = () => {
 
     const [showModal, setshowModal] = useState(false)
     return (
-        <View>
-            <View style={Style.Container}>
-                <Modal 
-                visible={showModal}
-                animationType="slide"
+        <View style={{ flex: 1, backgroundColor: 'lightgrey' }}>
+            <View style={Style.Icons}>
+                <Modal
+                    visible={showModal}
+                    animationType="slide"
+                    onRequestClose={() => setshowModal(false)}
                 >
+
+                    <View>
+                        <TouchableOpacity onPress={() => setshowModal(false)}>
+                            <Feather
+                                name="x-square" size={29} style={{ marginLeft: 340, marginTop: 9 }} />
+                        </TouchableOpacity>
+                    </View>
                     <View style={{ margin: 20 }}>
                         <Text style={{ fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}>Acccess Nova </Text>
                         <Text style={{ fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}>on Desktop </Text>
@@ -52,32 +60,35 @@ const Home = () => {
                     <Text style={{ marginLeft: 90, fontSize: 15, fontWeight: '300' }}>conservation there.</Text>
 
                     <View >
-                        <TouchableOpacity onPress={()=>setshowModal(false)}>
+                        <TouchableOpacity >
                             <Text style={Style.Button}>Get Started</Text>
                         </TouchableOpacity>
 
                     </View>
+
                 </Modal>
 
-                <TouchableOpacity onPress={()=>setshowModal(true)}>
+                <TouchableOpacity onPress={() => setshowModal(true)}>
                     <Feather
                         name="monitor" size={20} />
                 </TouchableOpacity>
 
-                <View>
-                    <TouchableOpacity>
-                        <Feather
-                            name="user" size={20} style={{ marginHorizontal: 15 }} />
-                    </TouchableOpacity>
 
-                </View>
+                <TouchableOpacity>
+                    <Feather
+                        name="user" size={20} style={{ marginHorizontal: 15 }} />
+                </TouchableOpacity>
             </View>
+
+            <Text style={{ fontSize: 45, textAlign: 'center', marginTop: 25 }}>NOVA</Text>
+
+           
 
         </View>
     );
 };
 const Style = StyleSheet.create({
-    Container: {
+    Icons: {
         flexDirection: 'row',
         marginVertical: 60,
         justifyContent: 'flex-end',
@@ -95,11 +106,11 @@ const Style = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 30,
         textAlign: 'center',
-        marginTop: 80,
+        marginTop: 50,
         color: 'white',
-        borderRadius: 10
+        borderRadius: 10,
+        borderWidth: 3
     }
-
 })
 
-export default Home;
+export default Chats;
