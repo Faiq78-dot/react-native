@@ -1,19 +1,19 @@
-import { Text, View, StyleSheet, TouchableOpacity, Modal, Button } from "react-native";
+import { Text,TextInput, View, StyleSheet, TouchableOpacity, Modal, Button, TouchableHighlight } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const Chats = () => {
-
+export default function
+Chats({ navigation }){
     const [showModal, setshowModal] = useState(false)
+
     return (
-        <View style={{ flex: 1, backgroundColor: 'lightgrey' }}>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
             <View style={Style.Icons}>
                 <Modal
                     visible={showModal}
                     animationType="slide"
-                    onRequestClose={() => setshowModal(false)}
-                >
-
+                    onRequestClose={() => setshowModal(false)}>
                     <View>
                         <TouchableOpacity onPress={() => setshowModal(false)}>
                             <Feather
@@ -59,8 +59,9 @@ const Chats = () => {
                     <Text style={{ marginLeft: 90, fontSize: 15, fontWeight: '300' }}>computer to continue your</Text>
                     <Text style={{ marginLeft: 90, fontSize: 15, fontWeight: '300' }}>conservation there.</Text>
 
-                    <View >
-                        <TouchableOpacity >
+                    <View>
+                        
+                        <TouchableOpacity onPress={()=>navigation.navigate('SignIn')}>
                             <Text style={Style.Button}>Get Started</Text>
                         </TouchableOpacity>
 
@@ -80,9 +81,20 @@ const Chats = () => {
                 </TouchableOpacity>
             </View>
 
-            <Text style={{ fontSize: 45, textAlign: 'center', marginTop: 25 }}>NOVA</Text>
+            <Text style={{ fontSize: 40, textAlign: 'center', marginTop: 25 }}>NOVA</Text>
 
-           
+            <View style={{ borderRadius:40 ,padding:20, marginHorizontal:60,
+                backgroundColor:'white', elevation:20, flexDirection:'row', marginTop:23}}>
+                    <TouchableHighlight onPress={() =>navigation.navigate('Nova')}>
+                <Text>
+                Ask a question...
+                </Text>
+                </TouchableHighlight>
+                <TouchableOpacity>
+                    <Feather
+                    name="camera" size={24} style={{marginLeft:80}} />
+                </TouchableOpacity>
+            </View>
 
         </View>
     );
@@ -113,4 +125,3 @@ const Style = StyleSheet.create({
     }
 })
 
-export default Chats;
