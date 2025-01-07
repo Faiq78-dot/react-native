@@ -8,6 +8,7 @@ import Home from './Home';
 import SignIn from './SignIn';
 import MyTab from '.';
 import Email from './Email';
+import Account from './Account';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,14 @@ HomeStack(){
                 <Stack.Navigator>
                     <Stack.Screen name='NOVA' component={Home} />
                     <Stack.Screen name='Log In' component={SignIn} />
-                    <Stack.Screen name='Sign In' component={Email} />
+                    <Stack.Screen name='Sign In' component={Email} options={({navigation}) =>
+                        ({title : 'Sign In' , headerLeft : () =>(
+                            <TouchableOpacity onPress={() =>navigation.goBack()}>
+                                <Feather
+                                name='arrow-left' size={24} />
+                            </TouchableOpacity> 
+                        )})} />
+                    <Stack.Screen name='Create Account' component={Account} />
                 </Stack.Navigator>      
     )
 };

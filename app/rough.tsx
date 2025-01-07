@@ -175,15 +175,3 @@ snapPoints={snapPoints}>
 //     );
 //   };
   
-//   const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       paddingTop: 200,
-//     },
-//     contentContainer: {
-//       flex: 1,
-//       padding: 36,
-//       alignItems: 'center',
-//     },
-//   });
-  
