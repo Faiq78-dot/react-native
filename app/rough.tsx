@@ -134,44 +134,275 @@ snapPoints={snapPoints}>
 
 
 
-//                 MainBottomSheet
+//                               Main Email Screen          
 
-// const App = () => {
-//     // hooks
-//     const sheetRef = useRef<BottomSheet>(null);
-  
-//     // variables
-//     const snapPoints = useMemo(() => ["25%", "50%", "90%"], []);
-  
-//     // callbacks
-//     const handleSheetChange = useCallback((index) => {
-//       console.log("handleSheetChange", index);
-//     }, []);
-//     const handleSnapPress = useCallback((index) => {
-//       sheetRef.current?.snapToIndex(index);
-//     }, []);
-//     const handleClosePress = useCallback(() => {
-//       sheetRef.current?.close();
-//     }, []);
-  
-//     // render
+// import { ScrollView, TouchableOpacity, StyleSheet, Text, View, Image, TextInput } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import { Feather } from '@expo/vector-icons';
+// import { useState } from 'react';
+
+// export default function
+//     Email() {
+//     const navigation = useNavigation()
+//     const [email, setEmail] = useState('')
+//     const [pressable, setPressable] = useState(false)
+
+//     const isvalidEmail = (email) => {
+//         setEmail(email)
+//         const checkemail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+//         if (checkemail.test(email)) {
+//             setPressable(true)
+
+//         } else { setPressable(false) }
+
+//     }
+
+//     const handleTextClick = () => {
+//         navigation.navigate('Account')
+//     };
+
 //     return (
-//       <GestureHandlerRootView style={styles.container}>
-//         <Button title="Snap To 90%" onPress={() => handleSnapPress(2)} />
-//         <Button title="Snap To 50%" onPress={() => handleSnapPress(1)} />
-//         <Button title="Snap To 25%" onPress={() => handleSnapPress(0)} />
-//         <Button title="Close" onPress={() => handleClosePress()} />
-//         <BottomSheet
-//           ref={sheetRef}
-//           snapPoints={snapPoints}
-//           enableDynamicSizing={false}
-//           onChange={handleSheetChange}
-//         >
-//           <BottomSheetView style={styles.contentContainer}>
-//             <Text>Awesome 🔥</Text>
-//           </BottomSheetView>
-//         </BottomSheet>
-//       </GestureHandlerRootView>
+//         <View style={{ flex: 1, backgroundColor: 'white' }}>
+
+//             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+
+//                 <TouchableOpacity onPress={() => navigation.goBack()}>
+//                     <Feather
+//                         name='arrow-left' size={24} style={{ marginTop: 55, marginLeft: 40 }} />
+//                 </TouchableOpacity>
+
+//                 <Text style={{ marginTop: 50, marginLeft: 100 }}> Sign In</Text>
+
+//             </View>
+//             <Text style={{ fontSize: 24, marginTop: 50, fontWeight: 'bold', marginLeft: 20 }}> What's Your Email ?</Text>
+
+//             <View style={style.placeholder}>
+//                 <TextInput
+//                     placeholder='Enter Your Email' value={email} onChangeText={isvalidEmail} />
+//             </View>
+
+//             <Text style={{ marginTop: 20, marginLeft: 25 }}> You'll need to confirm this email later</Text>
+
+//             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+
+//                 <TouchableOpacity onPress={pressable ? handleTextClick : null}
+//                     disabled={!pressable}>
+//                     <Text style={[style.text, { backgroundColor: pressable ? "black" : "gray" }]}>Next</Text>
+//                 </TouchableOpacity>
+//             </View>
+//         </View>
 //     );
-//   };
+// };
+
+// const style = StyleSheet.create({
+//     placeholder: {
+//         borderRadius: 10,
+//         padding: 8,
+//         marginHorizontal: 30,
+//         backgroundColor: '#F5F5F5',
+//         elevation: 20,
+//         marginTop: 30
+//     },
+//     text: {
+//         fontSize: 24,
+//         fontWeight: 'bold',
+//         borderRadius: 10,
+//         padding: 20,
+//         marginHorizontal: 10,
+//         marginTop: 30,
+//         textAlign: 'center',
+//         marginBottom: 10,
+//         color: 'white'
+//     }
+// })
+
+
+
+//                                      practice                    
+
+
+
+
+    // const handleInputChange = (setter) => (value) =>{
+    //     setter(value);
+    //     if(errorMessage){
+    //         setErrorMessage(null)
+    //     }
+    // }
+
+    // const handleSignup =()=>{
+
+    //     createUserWithEmailAndPassword(auth,email,password)
+    //     .then((userCredential) =>{
+    //         const user = userCredential.user;
+    //        // alert('User registered Successfully!')
+    //        sendEmailVerification(user)
+    //        .then(()=>{
+    //         alert('Verification email sent! Please check your inbox')
+    //        })
+    //        .catch((error)=>{
+    //         setErrorMessage('Email error')
+    //        })
+    //         setEmail('')
+    //         setPassword('')
+    //     })
+    //     .catch((error) =>{
+    //         const errorMsg = error.message;
+    //         setErrorMessage(errorMsg)
+    //     })
+    // } 
+
+
+//                                        snappoints
+// const App =()=>{0.
+
+
+//     const Sheet = useRef<BottomSheet>(null)
   
+//     const snapPoints = useMemo(()=>['25%' , '50%' , '75%' , '100%'] , [])
+  
+//     const sheetchange = useCallback(() =>{
+  
+//     } , [])
+  
+//     const  Sheetup = useCallback((index)=>{
+//       Sheet.current?.snapToIndex(index) 
+//     } , [])
+  
+//     const Closesheet = ((index) =>{
+//       Sheet.current?.close(index)
+//     } , [])
+  
+//     return(
+//         <View style={{flex:1, backgroundColor:'grey'}}>
+//       <GestureHandlerRootView style={{flex:1 }}>
+//         <Button title="Open" onPress={()=>{Sheetup(3)}} />
+  
+//         <BottomSheet
+//         ref={Sheet}
+//         enableDynamicSizing={false}
+//         snapPoints={snapPoints}
+//         onChange={sheetchange}
+//         >
+//         <BottomSheetView style={{flex:1 , alignItems:'center', padding:37, backgroundColor:'#fff'}}>
+//           <Text> Hello World </Text>
+//         </BottomSheetView>
+//           </BottomSheet>
+//       </GestureHandlerRootView>
+//           </View>  
+//     )
+//   }
+  
+
+//                                 BottomSheet
+
+// import React, { useCallback, useRef, useMemo } from "react";
+// import { StyleSheet, View, Text, Button, TouchableOpacity, Alert } from "react-native";
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
+// import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+
+// const App =()=>{
+
+//     const Sheet = useRef<BottomSheet>(null)
+  
+//     const snapPoints = useMemo(()=>['25%' , '50%' , '75%' , '100%'] , [])
+  
+//     const sheetchange = useCallback(() =>{
+  
+//     } , [])
+  
+//     const  Sheetup = useCallback((index)=>{
+//       Sheet.current?.snapToIndex(index) 
+//     } , [])
+  
+//     const CloseSheet = useCallback(() => {
+//       Sheet.current?.close();
+//     }, []);
+  
+//     return(
+//         <View style={{flex:1, backgroundColor:'grey'}}>
+//       <GestureHandlerRootView style={{flex:1 }}>
+//         <View style={{marginTop:50}}>
+//         <Button  title="Close" onPress={() => CloseSheet()}  />
+//           </View>
+//         <Button title="Open" onPress={()=>{Sheetup(3)}} />
+
+//         <BottomSheet
+//         ref={Sheet}
+//         enableDynamicSizing={false}
+//         snapPoints={snapPoints}
+//         onChange={sheetchange}
+//         >
+//         <BottomSheetView style={{flex:1 , alignItems:'center', padding:37, backgroundColor:'#fff'}}>
+//           <Text> Hello World </Text>
+//         </BottomSheetView>
+//           </BottomSheet>
+//       </GestureHandlerRootView>
+//           </View>  
+//     )
+//   }
+  
+
+// export default App;
+
+
+
+//                        Bottomsheet 2
+// import { ScrollView, TouchableOpacity, StyleSheet, Text, View, Modal,Button } from 'react-native';
+// import { Feather } from '@expo/vector-icons';
+// import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+// import { GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
+// import { useMemo, useRef, useCallback } from 'react';
+// import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+
+
+// const AIBOTS = () => {
+
+//       const Sheet = useRef<BottomSheet>(null)
+  
+//     const snapPoints = useMemo(()=>['25%' , '50%' , '75%' , '100%'] , [])
+  
+//     const sheetchange = useCallback(() =>{
+  
+//     } , [])
+  
+//     const  Sheetup = useCallback((index)=>{
+//       Sheet.current?.snapToIndex(index) 
+//     } , [])
+  
+//     const CloseSheet = useCallback(() => {
+//       Sheet.current?.close();
+//     }, []);
+
+//   return (
+    
+//     <View style={{ flex: 1, backgroundColor: '#fff' }}>
+//       <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 50, justifyContent: 'space-between' }}>
+//         <Text style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 10 }}>AI Bots</Text>
+//         <TouchableOpacity onPress={()=>{Sheetup(3)}}>
+//           <Feather
+//           name='user' size={24} style={{ marginRight: 20 }} />
+//           </TouchableOpacity>
+//         </View>
+//         <View>
+//           <GestureHandlerRootView >
+//         <Button title='open' onPress={()=>{Sheetup(3)}} />
+//       <BottomSheet
+//         ref={Sheet}
+//         enableDynamicSizing={false}
+//         snapPoints={snapPoints}
+//         onChange={sheetchange}
+//         index={-1}
+//         >
+//         <BottomSheetView style={{flex:1 , alignItems:'center', padding:37, backgroundColor:'#fff'}}>
+//           <Text> Hello World </Text>
+//         </BottomSheetView>
+//         </BottomSheet>
+//     </GestureHandlerRootView>
+//       </View>
+//     </View>
+//   );
+// }
+
+// export default AIBOTS;

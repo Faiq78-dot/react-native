@@ -9,6 +9,7 @@ import SignIn from './SignIn';
 import MyTab from '.';
 import Email from './Email';
 import Account from './Account';
+import { Name } from './Name';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ HomeStack(){
                             </TouchableOpacity> 
                         )})} />
                     <Stack.Screen name='Create Account' component={Account} />
+                    <Stack.Screen name='Your Name' component={Name} />
                 </Stack.Navigator>      
     )
 };
