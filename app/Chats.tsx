@@ -17,7 +17,7 @@ Chats({ navigation }){
                     <View>
                         <TouchableOpacity onPress={() => setshowModal(false)}>
                             <Feather
-                                name="x-square" size={29} style={{ marginLeft: 340, marginTop: 9 }} />
+                                name="x-square" size={29} style={{ marginLeft: 320, marginTop: 9 }} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ margin: 20 }}>
