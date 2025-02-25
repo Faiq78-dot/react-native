@@ -468,3 +468,33 @@
 //     flex: 1,
 //   },
 // });
+
+
+
+//                                 loggedinscreen
+// import React from 'react';
+// import { View, Text, Button, StyleSheet } from 'react-native';
+// import { signOut } from 'firebase/auth';
+// import { auth } from '@/firebase.config';
+
+// export default function LoggedInScreen() {
+//   const logout = async () => {
+//     try {
+//       await signOut(auth);
+//     } catch (e) {
+//       console.error(e);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.header}>Welcome! You are logged in.</Text>
+//       <Button title="Log out" onPress={logout} />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white' },
+//   header: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
+// });

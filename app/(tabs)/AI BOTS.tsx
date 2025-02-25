@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BackHandler, StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
+import { BackHandler, StyleSheet, Text, View, TouchableOpacity, Image, Modal, ScrollView } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, runOnJS } from 'react-native-reanimated';
 import { Feather } from '@expo/vector-icons';
 import { GestureDetector, Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
+import { auth } from '@/firebase.config';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function BottomSheet({ isOpen, setIsOpen, duration = 600, children }) {
 
@@ -100,13 +104,30 @@ const sheetStyles = StyleSheet.create({
   },
 });
 
-export default function App({navigation}) {
+export default function App({setLoggedIn}) {
+  
+  const navigation = useNavigation();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [showModal, setshowModal] = useState(false)
+  const [user  , setUser] = useState(null);
+
+
+  useEffect(() =>{
+    const unsubscribe = onAuthStateChanged(auth, (user) =>{
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async() =>{
+    await signOut(auth);
+    await AsyncStorage.removeItem('userToken');
+    setLoggedIn(false)
+  }
 
   return (
     <GestureHandlerRootView>
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>               
         <View>
         <Modal
         visible={showModal}
@@ -174,6 +195,8 @@ export default function App({navigation}) {
           </TouchableOpacity>
         </View>
         <BottomSheet isOpen={isSheetOpen} setIsOpen={setIsSheetOpen}>
+          <ScrollView>
+
           <Text style={{ textAlign: 'center', fontSize: 18, marginTop: 10 }}> Profile</Text>
           <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 25, fontWeight: '500' }}>NOVA AI</Text>
           <Text style={{ fontSize: 20, textAlign: 'center', fontWeight: '500' }}>CHATBOT</Text>
@@ -189,13 +212,21 @@ export default function App({navigation}) {
               resizeMode='center' style={{ width: 65, height: 65 }} />
           </View>
           <Text style={{ fontSize: 15, fontWeight: 'bold', textAlign: 'center', marginTop: 20 }}>Welcome To Nova</Text>
-          <TouchableOpacity onPress={() => setshowModal(true)}>
+          {user ? (
+           <TouchableOpacity onPress={handleLogout}>
+           <Text style={{
+             textAlign: 'center', fontSize: 15,
+             fontWeight: '600', marginTop: 15, padding: 10, borderWidth: 1,
+             marginHorizontal: 135, borderRadius: 20
+           }}>Logout</Text>
+         </TouchableOpacity>):(         
+         <TouchableOpacity onPress={() => setshowModal(true)}>
             <Text style={{
               textAlign: 'center', fontSize: 15,
               fontWeight: '600', marginTop: 15, padding: 10, borderWidth: 1,
               marginHorizontal: 135, borderRadius: 20
             }}>Sign In</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>)}
           <View style={{flexDirection:'row', marginTop:25, 
             backgroundColor:'#E6FaF2' ,padding:10,alignItems:'center', marginHorizontal:16}}>
             <Feather
@@ -203,6 +234,8 @@ export default function App({navigation}) {
             <Text style={{fontSize:15, flexWrap:'wrap', color:'#2AAE66'}}>     Visit novaapp.ai on a computer
                to {'\n'}           continue your conservations {'\n'}                                  there </Text>
           </View>
+          <Text style={{fontSize:17, fontWeight:'600', marginTop:30}}> Available Platform</Text>
+            </ScrollView>
         </BottomSheet>
       </View>
     </GestureHandlerRootView>

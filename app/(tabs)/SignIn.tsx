@@ -1,11 +1,11 @@
-import { Image, FlatList, TextInput, ScrollView, TouchableOpacity, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { Image, FlatList, TouchableOpacity, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 
 
 export default function
     Email() {
         
-        const navigation = useNavigation();
+    const navigation = useNavigation();
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={{ alignItems: 'center' }}>
@@ -19,8 +19,8 @@ export default function
             <Text style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold' }}>Welcome to Nova</Text>
 
             <View>
-                <TouchableOpacity onPress={() => navigation.navigate('Email')}>
-                    <Text style={style.Button}>Sign In</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+                    <Text style={style.Button}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
             <View>
