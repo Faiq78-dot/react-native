@@ -25,7 +25,7 @@ export default function
             </View>
             <View>
                 <TouchableOpacity
-                    style={style.Google} >
+                    style={style.Google} onPress={()=> navigation.navigate('Google')} >
                     <Image
                         source={require('../../assets/images/google logo.png')}
                         resizeMode='center'

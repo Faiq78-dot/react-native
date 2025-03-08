@@ -498,3 +498,129 @@
 //   container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white' },
 //   header: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                             BottomSheetModal
+// import React, { useCallback, useMemo, useRef } from "react";
+// import { View, Text, StyleSheet, TouchableOpacity, Easing } from "react-native";
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
+// import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from "@gorhom/bottom-sheet";
+// import { Feather } from "@expo/vector-icons";
+
+// const App = () => {
+// 	// ref
+// 	const bottomSheetRef = useRef<BottomSheet>(null);
+
+// 	// variables
+// 	const snapPoints = useMemo(() => ["25%", "55%"], []);
+
+// 	// callbacks
+// 	const handleSheetChanges = useCallback(() => {
+// 	}, []);
+// 	const handleSnapPress = useCallback((index) => {
+// 		bottomSheetRef.current?.snapToIndex(index);
+// 	}, []);
+
+// 	const handleClosePress = useCallback(() => {
+// 		bottomSheetRef.current?.close();
+// 	}, []);
+
+// 	// renders
+// 	const renderBackdrop = useCallback(
+// 		(props) => (
+// 			<BottomSheetBackdrop
+// 				{...props}
+// 				appearsOnIndex={0}
+// 				disappearsOnIndex={-1}
+// 				pressBehavior="none"
+// 			/>
+// 		),
+// 		[]
+// 	);
+// 	return (
+// 		<GestureHandlerRootView >
+// 			<View style={styles.container}>
+// 				<View>
+// 					<TouchableOpacity onPress={() => { handleSnapPress(1) }}>
+// 						<Text style={{ fontSize: 24, marginTop: 50, textAlign: 'center' }}>Rajpoot</Text>
+// 					</TouchableOpacity>
+// 				</View>
+// 				<BottomSheet
+// 					ref={bottomSheetRef}
+// 					index={-1}
+// 					snapPoints={snapPoints}
+// 					backdropComponent={renderBackdrop}
+// 					enableDynamicSizing={false}
+// 					onChange={handleSheetChanges}
+// 					enablePanDownToClose={true}
+// 					animationConfigs={{duration:300}}
+// 				>
+// 					<BottomSheetView style={styles.contentContainer}>
+// 						<View style={{ flex: 1, alignItems: 'center' }}>
+// 							<Text style={{ fontSize: 30, fontWeight: 'bold', marginTop: 20 }}>Nova on Desktop</Text>
+// 							<Text style={{ fontSize: 30, fontWeight: 'bold' }}>and Web</Text>
+// 							<Feather style={{ marginTop: 20 }}
+// 								name="monitor" size={40} color="blue"
+// 							/>
+
+// 							<Text style={{ marginTop: 20 }}>Visit novaapp.ai on your computer to continue</Text>
+// 							<Text>your conservation there</Text>
+
+// 							<Text style={{ marginTop: 20 }}>You can simply use your email address to log in.</Text>
+// 						</View>
+// 						<View style={{ backgroundColor: '#007AFF', padding: 10, marginHorizontal: 20, borderRadius: 10, marginBottom: 20 }}>
+// 							<TouchableOpacity onPress={handleClosePress} >
+// 								<Text style={{ fontSize: 24, textAlign: 'center', color: 'white' }}> Got it</Text>
+// 							</TouchableOpacity>
+// 						</View>
+// 					</BottomSheetView>
+// 				</BottomSheet>
+// 			</View>
+// 		</GestureHandlerRootView>
+// 	);
+// };
+
+// const styles = StyleSheet.create({
+// 	container: {
+// 		flex: 1,
+// 		padding: 24,
+// 		backgroundColor: "white",
+// 	},
+// 	contentContainer: {
+// 		flex: 1,
+// 	}
+// });
+
+// export default App;

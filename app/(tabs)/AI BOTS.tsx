@@ -116,7 +116,7 @@ export default function App({setLoggedIn}) {
     const unsubscribe = onAuthStateChanged(auth, (user) =>{
       setUser(user);
     });
-    return () => unsubscribe();
+    return () => unsubscribe(); 
   }, []);
 
   const handleLogout = async() =>{
@@ -209,7 +209,7 @@ export default function App({setLoggedIn}) {
           <View style={{ alignItems: 'center', marginTop: 20 }}>
             <Image
               source={require('../../assets/images/Welcome.png')}
-              resizeMode='center' style={{ width: 65, height: 65 }} />
+              resizeMode='center' style={{ width: 65, height: 65 }}        />
           </View>
           <Text style={{ fontSize: 15, fontWeight: 'bold', textAlign: 'center', marginTop: 20 }}>Welcome To Nova</Text>
           {user ? (

@@ -10,6 +10,7 @@ import MyTab from '.';
 import LoginScreen from './LoginScreen'
 import SignUp from './SignUp'
 import AIBOTS from './AI BOTS'
+import Google from './Google'
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,7 @@ App(){
                         <Stack.Screen name='Login' component={LoginScreen} />
                         <Stack.Screen name='SignIn' component={SignIn} />
                         <Stack.Screen name='SignUp' component={SignUp} />
+                        <Stack.Screen name='Googlr' component={Google} />
                         </>
                     )}
                     <Stack.Screen name='NOVA' component={Home} />
